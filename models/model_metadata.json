@@ -1,0 +1,78 @@
+{
+  "random_seed": 42,
+  "feature_list": [
+    "amount",
+    "log_amount",
+    "balance_change_orig",
+    "balance_error_orig",
+    "drained_to_zero",
+    "origin_balance_zero_before",
+    "amount_to_origin_balance_ratio",
+    "balance_change_dest",
+    "balance_error_dest",
+    "dest_balance_artifact_flag",
+    "hour_of_day",
+    "hour_sin",
+    "hour_cos",
+    "is_transfer",
+    "hist_dest_txn_count",
+    "hist_dest_unique_origin_count",
+    "hist_dest_total_amount",
+    "hist_dest_avg_amount",
+    "hist_dest_max_amount",
+    "destination_is_new",
+    "amount_to_dest_avg_ratio",
+    "amount_to_type_avg_ratio",
+    "high_amount_indicator"
+  ],
+  "target": "isFraud",
+  "train_steps": [
+    1,
+    520
+  ],
+  "val_steps": [
+    521,
+    631
+  ],
+  "test_steps": [
+    632,
+    743
+  ],
+  "modeling_universe": "TRANSFER + CASH_OUT only (eligible_for_fraud_model == 1)",
+  "preprocessing": {
+    "logistic_regression": "StandardScaler + class_weight='balanced'",
+    "lightgbm": "scale_pos_weight=458.04 (from TRAIN only)",
+    "xgboost": "scale_pos_weight=458.04 (from TRAIN only)"
+  },
+  "model_params": {
+    "logistic_regression": {
+      "class_weight": "balanced",
+      "max_iter": 2000,
+      "random_state": 42
+    },
+    "lightgbm": {
+      "n_estimators": 500,
+      "learning_rate": 0.05,
+      "num_leaves": 63,
+      "best_iteration": 1
+    },
+    "xgboost": {
+      "n_estimators": 500,
+      "learning_rate": 0.05,
+      "max_depth": 6,
+      "best_iteration": 30
+    }
+  },
+  "selected_model": "xgboost",
+  "selection_criterion": "highest validation PR-AUC",
+  "operating_modes_validation_thresholds": {
+    "high_recall": 0.43,
+    "balanced": 0.43,
+    "high_precision": 0.17
+  },
+  "model_files": {
+    "logistic_regression": "models/logistic_regression.joblib",
+    "lightgbm": "models/lightgbm.joblib",
+    "xgboost": "models/xgboost.joblib"
+  }
+}

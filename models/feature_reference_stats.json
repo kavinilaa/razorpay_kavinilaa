@@ -1,0 +1,25 @@
+{
+  "source": "computed by scripts/build_feature_reference_stats.py from data/processed/engineered_transactions.parquet",
+  "high_amount_thresholds_by_type": {
+    "cutoff_step": 594,
+    "method": "95th percentile of amount per type, steps <= cutoff_step (matches feature_engineering.py compute_high_amount_indicator)",
+    "values": {
+      "CASH_IN": 412379.22250000003,
+      "CASH_OUT": 427918.40699999995,
+      "DEBIT": 14973.286000000006,
+      "PAYMENT": 37978.621499999994,
+      "TRANSFER": 2678302.9084999994
+    }
+  },
+  "type_avg_amount_reference": {
+    "cutoff_step": 520,
+    "method": "mean amount per type, steps <= cutoff_step (matches classifier TRAIN_STEPS end; a frozen snapshot standing in for the batch pipeline's per-row expanding average, for standalone single-transaction inference only)",
+    "values": {
+      "CASH_IN": 168983.92914516455,
+      "CASH_OUT": 176040.3091889153,
+      "DEBIT": 5599.652909193112,
+      "PAYMENT": 13104.31426470402,
+      "TRANSFER": 920839.3114827514
+    }
+  }
+}

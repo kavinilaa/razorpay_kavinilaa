@@ -1,0 +1,17 @@
+pandas==2.2.2
+numpy==1.26.4
+matplotlib==3.9.2
+jupyter==1.0.0
+nbformat==5.10.4
+pyarrow==20.0.0
+scikit-learn==1.6.1
+psutil==5.9.8
+lightgbm==4.7.0
+xgboost==3.4.1
+shap==0.52.0
+fastapi==0.141.1
+uvicorn==0.52.3
+pydantic==2.13.4
+pydantic-settings==2.15.0
+httpx==0.28.1
+pytest==9.1.1

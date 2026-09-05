@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# Node / frontend (frontend/ has its own .gitignore too; duplicated here for
+# safety since this is the repo root)
+node_modules/
+frontend/dist/
+frontend/dist-ssr/
+
+# Environment files - NEVER commit real secrets (API keys, etc.). The
+# .env.example files ARE meant to be committed.
+.env
+.env.*
+!.env.example
+!frontend/.env.example
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Large data / model artifacts are intentionally NOT ignored - this repo
+# commits its (small) trained model files and processed datasets so the
+# system is runnable out of the box. Do not add data/ or models/ here.

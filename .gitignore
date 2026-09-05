@@ -1,0 +1,28 @@
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Python caches and test output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local frontend dependencies and build output
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Large local dataset files. The trained models and small precomputed spike
+# artifacts remain tracked so the dashboard can run from a clone.
+data/raw/
+data/processed/engineered_transactions.parquet
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
