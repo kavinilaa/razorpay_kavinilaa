@@ -1,13 +1,3 @@
-"""
-Phase 5 - structured (JSON-lines) request logging.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-No print statements anywhere in backend/. Every HTTP request produces exactly
-one JSON log line with: timestamp, endpoint, method, status_code, latency_ms,
-and - for /transactions/score - operating_mode and risk_band. No PII or raw
-transaction identifiers (nameOrig/nameDest) are logged; only the
-non-sensitive decision fields already present in the risk_engine response.
-"""
 import json
 import logging
 import sys

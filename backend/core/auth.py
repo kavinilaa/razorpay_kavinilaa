@@ -1,20 +1,3 @@
-"""
-Phase 7 - single shared-secret API key auth.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-This is deliberately NOT a full identity system: there are no user accounts,
-no roles, no per-caller keys, no OAuth. It is one shared secret
-(`settings.api_key`) that every caller must present in the
-`settings.api_key_header_name` header (default `X-API-Key`). See
-reports/phase7_summary.md for exactly what this does and does not protect
-against - do not read more security into it than is actually implemented
-here.
-
-Applied as a router-level FastAPI dependency (see backend/main.py) to every
-endpoint EXCEPT /api/v1/health, which must stay reachable with no key so a
-load balancer / uptime monitor / orchestrator readiness probe can always
-reach it (a health check that itself requires auth is a common ops footgun).
-"""
 import secrets
 
 from fastapi import Header, HTTPException, status

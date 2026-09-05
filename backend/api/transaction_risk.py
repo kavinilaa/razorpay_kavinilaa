@@ -1,24 +1,3 @@
-"""
-Phase 5 - POST /api/v1/transactions/score
-
-Thin wrapper: Pydantic validates request SHAPE, then this handler calls
-risk_engine.predict_transaction_risk() unchanged and returns its result dict
-as-is. No feature generation, model loading, or threshold logic lives here.
-
-Two layers of validation exist by design, with distinct jobs (see
-reports/phase5_api_summary.md):
-  1. Pydantic (TransactionRequest) - request SHAPE: types, required-ness,
-     numeric ranges (step >= 1, amounts >= 0). A shape violation returns
-     FastAPI's own automatic 422 body (a list of pydantic error dicts) and
-     never reaches this function.
-  2. risk_engine.schemas.validate_transaction() (inside predict_transaction_risk) -
-     DOMAIN rules: is `type` one of the five valid PaySim types, are the
-     balances internally consistent enough to build features from. A domain
-     violation reaches this function fine (Pydantic saw a valid shape) and
-     comes back from the risk engine as status="invalid_input", which this
-     handler maps to HTTP 422 with the risk engine's OWN error envelope
-     (a different JSON body shape from case 1 - documented, not a bug).
-"""
 from fastapi import APIRouter, Query, Request, Response
 
 from risk_engine import predict_transaction_risk

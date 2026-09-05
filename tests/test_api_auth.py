@@ -1,9 +1,3 @@
-"""
-Phase 7 - dedicated tests for the single shared-secret API key auth
-mechanism (backend/core/auth.py). Covers all three PROTECTED endpoints
-(transactions/score, spikes/analyze, model-info) plus the one EXEMPT
-endpoint (health).
-"""
 import pytest
 
 import risk_engine.risk_engine as re_mod

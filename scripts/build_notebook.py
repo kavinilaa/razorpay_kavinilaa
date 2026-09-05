@@ -1,7 +1,3 @@
-"""Builds notebooks/01_dataset_analysis.ipynb from the Phase 1 analysis code,
-embedding real outputs (text + images) captured from the actual script run
-so the notebook reflects genuine results without re-reading the 470MB CSV
-a second time inside notebook execution."""
 import base64
 import json
 import os

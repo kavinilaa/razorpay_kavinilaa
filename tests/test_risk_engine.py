@@ -1,10 +1,3 @@
-"""
-Unit tests for src/risk_engine/risk_engine.py.
-
-These use the REAL, already-trained artifacts committed in models/ (small
-files: xgboost.joblib is ~147KB) rather than the 6.36M-row dataset - no
-retraining, no raw CSV needed.
-"""
 import json
 import os
 

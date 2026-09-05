@@ -1,20 +1,3 @@
-"""
-Phase 4 - Per-transaction SHAP explainability.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-Generates the "top_reasons" / natural-language explanation for a single
-transaction's risk score using REAL SHAP values from the trained XGBoost
-model (models/xgboost.joblib) - never a fixed, hard-coded sentence per
-transaction. Each feature has ONE factual description template, filled in
-with THIS transaction's own value (e.g. "the origin balance exactly matches
-the expected debit formula" is only said when balance_error_orig is actually
-~0 for this row) - the model's SHAP sign then determines whether that fact is
-reported as raising or lowering the score, rather than the phrase itself
-guessing a direction. This avoids the bug class of a template that assumes
-"large deviation = risky" when, for this dataset, the opposite can be true
-(fraud in PaySim almost always satisfies the debit formula exactly - see
-reports/phase3_model_comparison.md #8).
-"""
 import numpy as np
 import pandas as pd
 import shap

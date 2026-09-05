@@ -1,4 +1,3 @@
-"""Unit tests for GET /api/v1/health."""
 import os
 
 import pytest

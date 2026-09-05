@@ -1,14 +1,3 @@
-"""
-Reproducibility wrapper - load the trained model and score one sample
-transaction through the full Phase 4 risk engine (model loading + feature
-generation + explanation + spike context). Cheap, read-only, no --confirm
-needed - this is the "does the whole pipeline actually work end to end"
-smoke check.
-
-Usage:
-    python scripts/score_sample_transaction.py
-    python scripts/score_sample_transaction.py --mode HIGH_PRECISION
-"""
 import argparse
 import json
 import os

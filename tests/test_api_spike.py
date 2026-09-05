@@ -1,4 +1,3 @@
-"""Unit tests for POST /api/v1/spikes/analyze."""
 import os
 
 import pytest

@@ -1,4 +1,3 @@
-"""Unit tests for POST /api/v1/transactions/score."""
 import os
 
 import pytest

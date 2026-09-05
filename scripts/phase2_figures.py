@@ -1,4 +1,3 @@
-"""Generate Phase 2 figures for the feature engineering notebook/report."""
 import json
 import os
 

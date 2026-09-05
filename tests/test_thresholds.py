@@ -1,4 +1,3 @@
-"""Unit tests for src/risk_engine/thresholds.py - operating modes and risk bands."""
 import pytest
 
 from risk_engine import thresholds

@@ -1,18 +1,3 @@
-/**
- * Phase 6 - TypeScript types mirroring the Phase 5 backend's Pydantic schemas.
- *
- * These are kept in sync BY HAND with:
- *   - backend/schemas/transaction.py (TransactionRequest / TransactionRiskResponse,
- *     themselves generated from src/risk_engine/schemas.py - see that file's docstring)
- *   - backend/schemas/spike.py (SpikeAnalysisRequest / SpikeAnalysisResponse)
- *   - backend/api/health.py::run_health_check()
- *   - backend/api/model_info.py::build_model_info()
- *
- * No field here should be invented or renamed relative to those sources - if the
- * backend response shape changes, this file must change with it (see
- * reports/phase6_frontend_summary.md for why this isn't code-generated in this phase).
- */
-
 // ---------------------------------------------------------------------------
 // Shared
 // ---------------------------------------------------------------------------

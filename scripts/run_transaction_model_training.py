@@ -1,22 +1,3 @@
-"""
-Reproducibility wrapper - Phase 3, Part A transaction-model training.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-Runs src/models/train_transaction_models.py end to end (trains Logistic
-Regression, LightGBM, and XGBoost on the engineered dataset). Requires
-data/processed/engineered_transactions.parquet to already exist (see
-scripts/run_feature_engineering.py). Guarded behind --confirm since this
-overwrites the models/ artifacts already committed in this repo and takes
-noticeable time.
-
-Usage:
-    python scripts/run_transaction_model_training.py --confirm
-
-Produces:
-    models/logistic_regression.joblib, models/lightgbm.joblib, models/xgboost.joblib
-    models/model_metadata.json, models/predictions_cache.npz
-    reports/phase3_model_stats.json
-"""
 import argparse
 import os
 import sys

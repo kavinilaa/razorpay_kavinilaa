@@ -1,4 +1,3 @@
-"""Unit tests for src/risk_engine/root_cause.py - spike root-cause analysis."""
 import pandas as pd
 
 from risk_engine.root_cause import analyze_spike

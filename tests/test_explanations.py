@@ -1,4 +1,3 @@
-"""Unit tests for src/risk_engine/explanations.py - real SHAP-based explanations."""
 import pandas as pd
 import pytest
 

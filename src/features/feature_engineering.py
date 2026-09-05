@@ -1,37 +1,3 @@
-"""
-Phase 2 - Feature Engineering Pipeline
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-Reads the raw PaySim CSV (never modified) and produces two leakage-safe,
-model-ready datasets:
-
-  1. data/processed/engineered_transactions.parquet
-     One row per transaction. Predictive features only use information
-     available AT or BEFORE the current transaction's step. Destination
-     behavioral features are computed with a strict "steps < T" expanding
-     window (see `compute_destination_history`) — never full-dataset stats
-     attached retroactively to early rows.
-
-  2. data/processed/time_window_features.parquet
-     One row per `step`, aggregated for spike-detection. Columns are split
-     into PREDICTIVE (safe as model input) and columns prefixed `gt_`
-     (ground-truth/evaluation only — built from isFraud, never a model
-     input).
-
-Design decision on chunking: the full dataset fits in ~1GB RAM (confirmed in
-Phase 1) against several GB of headroom, and the leakage-safe expanding
-aggregations below require a single global time ordering to be correct —
-splitting into independent chunks would silently break that ordering at
-chunk boundaries. So this pipeline loads the full CSV once with
-memory-efficient dtypes rather than chunked streaming. If dataset size grows
-by an order of magnitude, the per-destination and per-type aggregation
-tables (which are small — see functions below) could be computed
-incrementally from chunks instead; the row-level feature attachment is a
-simple merge and would still work.
-
-isFraud and isFlaggedFraud are carried through as reference/evaluation
-columns only. No engineered PREDICTIVE feature is derived from either.
-"""
 import os
 import time
 

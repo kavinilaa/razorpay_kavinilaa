@@ -1,20 +1,3 @@
-"""
-Reproducibility wrapper - Phase 3, Part B spike detection.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-Runs src/models/spike_detection.py end to end. Requires
-data/processed/time_window_features.parquet and a trained transaction model
-(models/model_metadata.json + the selected model's .joblib) to already
-exist. Guarded behind --confirm since it overwrites committed artifacts.
-
-Usage:
-    python scripts/run_spike_detection.py --confirm
-
-Produces:
-    models/isolation_forest.joblib
-    data/processed/time_window_features_extended.parquet
-    reports/phase3_spike_stats.json
-"""
 import argparse
 import os
 import sys

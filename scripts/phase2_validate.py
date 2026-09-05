@@ -1,4 +1,3 @@
-"""Phase 2 validation checks on the engineered datasets."""
 import json
 import os
 
@@ -37,9 +36,7 @@ engineered_cols = [c for c in df.columns if c not in raw_cols]
 results["engineered_feature_count"] = len(engineered_cols)
 results["engineered_feature_names"] = engineered_cols
 
-# duplicate rows: full-row duplicated() across 35 mixed-type columns (incl.
-# two high-cardinality string columns) is prohibitively memory-heavy on this
-# machine; check on a lighter but still meaningful subset of columns instead.
+
 dupe_subset = ["step", "type", "amount", "nameOrig", "nameDest", "oldbalanceOrg", "newbalanceOrig"]
 results["duplicate_rows_on_key_subset"] = int(df.duplicated(subset=dupe_subset).sum())
 raw_dupe_check = pd.read_csv(RAW_CSV, dtype={"step": "int32"}, usecols=["step"])

@@ -1,12 +1,3 @@
-"""
-Phase 3, Part A - Transaction-level fraud risk model training & evaluation.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-Trains three models (Logistic Regression, LightGBM, XGBoost) on a
-leakage-safe, time-split, TRANSFER+CASH_OUT-restricted slice of the Phase 2
-engineered dataset. No hyperparameter tuning is done against the test set;
-the test set is scored exactly once, at the end, for final reporting.
-"""
 import json
 import os
 import time

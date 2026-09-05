@@ -1,25 +1,3 @@
-"""
-Phase 5 - service-level configuration.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-Deliberately small. All model/artifact PATHS remain owned by
-src/risk_engine/risk_engine.py (resolved relative to that module's own file
-location) - this file does not duplicate or re-derive them. It only holds
-API-service concerns: app metadata, log level, and the default operating
-mode (which the API layer, not the risk engine, is responsible for choosing
-when a caller doesn't specify one - see risk_engine.thresholds.DEFAULT_MODE,
-which this intentionally mirrors rather than hard-coding a second time).
-
-Phase 6 addition: `cors_allow_origins` - see backend/main.py for the CORS
-middleware itself.
-
-Phase 7 additions: `api_key` / `api_key_header_name` (see backend/core/auth.py
-and reports/phase7_summary.md for the full auth design and its explicit
-limits), and `cors_allow_origins` is now a comma-separated STRING sourced
-from an environment variable (RISK_API_CORS_ALLOW_ORIGINS) rather than a
-hard-coded Python list, so a real deployed frontend origin can be added via
-docker-compose/.env without touching code.
-"""
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from risk_engine import thresholds as _thresholds  # src/ already on sys.path - see backend/__init__.py

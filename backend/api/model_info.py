@@ -1,20 +1,4 @@
-"""
-Phase 5 - GET /api/v1/model-info
 
-Every value returned here is sourced live from the real artifacts, never
-re-typed by hand:
-    - models/model_metadata.json          -> selected model, split boundaries, feature list
-    - models/phase3_model_stats.json      -> validation/test PR-AUC, ROC-AUC, precision, recall
-    - risk_engine.thresholds.OPERATING_MODES -> the same object used by the scoring endpoint
-    - models/xgboost.joblib               -> a live sha256 hash (a real content fingerprint,
-                                                                                        not a hand-assigned version string)
-    - models/model_card.md                -> the synthetic-data caveat and prohibited-use text,
-                                                                                        extracted verbatim from their named sections
-
-If model_card.md is restructured and a named section can no longer be found,
-this endpoint says so explicitly in the field instead of silently returning
-stale hand-typed text.
-"""
 import hashlib
 import json
 import os

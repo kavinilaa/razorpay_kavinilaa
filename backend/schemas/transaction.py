@@ -1,29 +1,3 @@
-"""
-Phase 5 - Pydantic request/response models for POST /api/v1/transactions/score.
-
-Reuses src/risk_engine/schemas.py as the single source of truth for field
-NAMES rather than retyping them:
-  - required field names come from `REQUIRED_FIELDS`
-  - optional field names AND their types come from `OPTIONAL_FIELDS_DEFAULTS`
-    (the type is inferred from each default value, so adding a new optional
-    field there does not require touching this file)
-  - the response model's field set comes directly from the `RiskAssessment`
-    dataclass via `dataclasses.fields()` - not hand-copied.
-
-What this file intentionally does NOT reuse: numeric range constraints
-(`step >= 1`, `amount >= 0`, ...) - those don't exist as machine-readable
-metadata in schemas.py (REQUIRED_FIELDS is just a list of names), so they are
-declared here once, explicitly, as the Pydantic-layer's SHAPE validation.
-`test_transaction_schema.py` asserts this file's required/optional field sets
-stay in sync with schemas.py, so drift is caught immediately rather than
-silently.
-
-Design decision (see reports/phase5_api_summary.md): `type` is validated here
-only as "non-empty string" (a shape concern). Whether it's one of the five
-valid PaySim types is left to risk_engine.schemas.validate_transaction()
-(a domain concern) - this is the split the Phase 5 brief explicitly asked
-for: "unknown transaction type" is domain validation, not shape validation.
-"""
 import dataclasses
 from enum import Enum
 from typing import Optional

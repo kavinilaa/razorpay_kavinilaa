@@ -1,18 +1,3 @@
-"""
-Phase 3, Part B - Fraud-spike detection.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-Builds a volume-conditioned, leakage-safe spike-detection layer on top of
-the Phase 2 per-step aggregates, adds a predictive signal derived from the
-Part A transaction-risk model (applying an already-trained, fixed model to
-generate a feature is not leakage -- it uses no future information), defines
-an explicit ground-truth spike rule for evaluation, and tests two detection
-methods: a statistical z-score baseline and an Isolation Forest.
-
-GROUND TRUTH vs PREDICTIVE is enforced by naming convention throughout:
-any column/quantity built from isFraud is prefixed `gt_` and is used only
-for defining ground truth and for evaluation -- never as a detector input.
-"""
 import json
 import os
 import time

@@ -1,19 +1,4 @@
-"""
-Phase 5 - POST /api/v1/spikes/analyze
 
-Thin wrapper over two Phase 3/4 read paths, kept separate in the response
-exactly as they are separate in risk_engine (never merged into one score):
-
-  - `step`           -> risk_engine.get_step_spike_context(step): a read-only
-                         lookup of the precomputed hybrid (statistical OR
-                         Isolation Forest) spike flag for that step, with both
-                         signals reported individually.
-  - `step_aggregate` -> risk_engine.analyze_spike(step_row, transactions_in_step):
-                         a live, evidence-backed root-cause breakdown (Phase 4).
-
-Either or both may be supplied in one request. No new spike-detection logic
-is implemented here.
-"""
 import pandas as pd
 from fastapi import APIRouter
 

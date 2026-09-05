@@ -1,5 +1,3 @@
-"""Phase 3 - Feature importance, permutation importance, and SHAP
-explainability for the selected transaction-risk model."""
 import json
 import os
 import time

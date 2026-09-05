@@ -1,14 +1,3 @@
-"""
-Phase 5 - Pydantic request/response models for POST /api/v1/spikes/analyze.
-
-There is no existing dataclass in src/risk_engine/schemas.py for spike
-inputs/outputs (only Contributor/Explanation/RiskAssessment, which are
-transaction-side), so these models are declared directly here - there is
-nothing upstream to duplicate. Response models use `extra="allow"` so any
-additional keys risk_engine's `get_step_spike_context()` / `analyze_spike()`
-return in the future are still passed through rather than silently dropped
-(the Phase 5 brief requires these to come back "unmodified in shape").
-"""
 from typing import Any, Optional
 
 from pydantic import BaseModel, ConfigDict, field_validator, model_validator

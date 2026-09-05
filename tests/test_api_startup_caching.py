@@ -1,10 +1,3 @@
-"""
-Verifies the cross-cutting requirement: the XGBoost model (and the other
-risk-engine artifacts) are loaded ONCE, not per request. This directly
-exercises the API (not just risk_engine in isolation) to prove the FastAPI
-wiring doesn't accidentally defeat risk_engine's Phase 4 caching - e.g. by
-constructing a fresh model instance per call somewhere in the request path.
-"""
 from unittest.mock import patch
 
 import risk_engine.risk_engine as re_mod

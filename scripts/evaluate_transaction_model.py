@@ -1,16 +1,3 @@
-"""
-Reproducibility wrapper - re-report the transaction model's evaluation
-WITHOUT retraining.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-Reads the already-produced reports/phase3_model_stats.json and
-models/model_metadata.json (written once by
-scripts/run_transaction_model_training.py --confirm) and prints a summary.
-Cheap and read-only - safe to run any time, no --confirm needed.
-
-Usage:
-    python scripts/evaluate_transaction_model.py
-"""
 import json
 import os
 import sys

@@ -1,12 +1,3 @@
-"""
-Phase 1 - Dataset Analysis for AI Fraud-Spike & Risk Detection System
-Loads the PaySim dataset, computes all statistics needed for the Phase 1
-report, saves figures to reports/figures/, and dumps every computed number
-to reports/phase1_stats.json so the markdown report can quote real values.
-
-Read-only with respect to the source CSV: data/raw/PS_20174392719_1491204439457_log.csv
-is never modified or rewritten.
-"""
 import json
 import os
 import time

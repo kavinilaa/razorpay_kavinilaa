@@ -1,19 +1,3 @@
-"""
-Reproducibility wrapper - Phase 2 feature engineering.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-Runs src/features/feature_engineering.py end to end. This reads the full
-6.36M-row raw PaySim CSV and takes on the order of minutes - it is guarded
-behind --confirm so it is never triggered by accident (e.g. by a test
-runner or CI job that imports this file).
-
-Usage:
-    python scripts/run_feature_engineering.py --confirm
-
-Produces:
-    data/processed/engineered_transactions.parquet
-    data/processed/time_window_features.parquet
-"""
 import argparse
 import os
 import sys

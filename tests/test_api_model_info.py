@@ -1,4 +1,3 @@
-"""Unit tests for GET /api/v1/model-info."""
 import os
 
 import pytest

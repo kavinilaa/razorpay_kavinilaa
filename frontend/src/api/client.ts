@@ -1,22 +1,3 @@
-/**
- * Phase 6 - shared fetch plumbing for the 4 backend endpoints.
- *
- * Every wrapper in api/transactions.ts, api/spikes.ts, api/health.ts,
- * api/modelInfo.ts returns a discriminated union so callers (and tests)
- * are FORCED to handle a genuine network/timeout failure differently from
- * a well-formed API response - including one whose body says
- * status="invalid_input" or status="degraded". That distinction is a
- * cross-cutting requirement of this phase, not incidental.
- *
- * Phase 7 addition: every request attaches the shared-secret API key (from
- * VITE_API_KEY, see .env.example) under the `X-API-Key` header - this must
- * match backend/core/config.py's `api_key_header_name` default. It is sent
- * on EVERY request, including GET /health, for simplicity: /health ignores
- * auth entirely (backend/core/auth.py), so an extra header there is
- * harmless. A missing/wrong key surfaces as its own `http_error` outcome
- * (status 401) - see `postForEnvelope` below, which must NOT mistake a 401's
- * `{ "detail": "Unauthorized" }` body for a risk-engine envelope.
- */
 import type { PydanticValidationError } from './types'
 
 export const API_BASE_URL: string = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000'

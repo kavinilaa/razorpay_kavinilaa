@@ -1,11 +1,3 @@
-"""
-Phase 4 - Risk engine input/output schemas and error types.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-No pydantic/FastAPI dependency is introduced here (Phase 4 explicitly does not build the API
-layer yet - see the Phase 4 brief). Schemas are plain dataclasses + a validation function so
-this module has zero new third-party dependencies and can be unit-tested in isolation.
-"""
 from dataclasses import dataclass, field
 from typing import Any, Optional
 

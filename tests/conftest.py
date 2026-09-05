@@ -1,16 +1,3 @@
-"""
-Phase 4 - pytest configuration shared by all tests.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-Adds `src/` to sys.path so tests can `import risk_engine` and `from models import
-spike_detection` the same way the rest of the codebase does, without installing
-the project as a package.
-
-None of these tests load the full 6.36M-row PaySim dataset. Tests that need
-"real" artifacts use the small trained model files already checked into
-`models/` (a few KB to ~1.5MB each); everything else uses small synthetic
-fixtures built in-line.
-"""
 import os
 import sys
 

@@ -1,24 +1,3 @@
-"""
-Phase 4 - Root-cause engine for a flagged fraud-spike step.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-Extends the root-cause logic already in src/models/spike_detection.py
-(which only compares transfer_count / cash_out_count / high_amount_count
-against their hour-of-day baselines) with two additional signals identified
-as gaps in reports/phase3_spike_detection.md #16-17:
-
-  1. `predicted_high_risk_count` vs. its own hour-of-day baseline (the spike
-     layer's own risk-model-derived signal - previously computed but never
-     checked by the root-cause function).
-  2. Destination concentration within the step, when raw per-transaction
-     data for that step is available - because reports/phase3_spike_detection.md
-     found every inspected ground-truth spike was a small number of
-     concentrated fraud transactions in an otherwise quiet step, a pattern
-     the type-count-ratio-only rule could not explain.
-
-Every number in the output is computed from whatever step-aggregate row /
-per-transaction data is passed in - nothing here is hard-coded per spike.
-"""
 from typing import Optional
 
 import pandas as pd

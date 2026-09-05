@@ -1,25 +1,3 @@
-"""
-Phase 4 - Operating thresholds and risk bands for the transaction-risk engine.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-Every number in this file is copied from Phase 3's actual evaluation output
-(reports/phase3_model_stats.json -> operating_modes_validation /
-final_test_evaluation_by_mode, and reports/phase3_threshold_analysis.md) - not
-invented. See `_source_check()` at the bottom, which re-derives the constants
-from models/model_metadata.json at import time and raises if they ever drift
-out of sync with the actual trained model's metadata.
-
-IMPORTANT - what these numbers do and do not mean (do not overstate this):
-The precision/recall/alert-rate figures below were measured on the Phase 3
-validation set (steps 521-631) and confirmed once on the untouched test set
-(steps 632-743) of the PaySim synthetic dataset. They describe how the
-XGBoost model behaved on THIS dataset's fraud pattern (dominated by the
-`drained_to_zero` signature - see reports/phase3_model_comparison.md #8).
-They are NOT a universal claim about how any threshold would perform on real
-transaction traffic, and no single mode is "the" optimal choice for every
-use case - that depends on a false-positive/false-negative cost ratio this
-project does not have (see reports/phase2_modeling_recommendation.md #8).
-"""
 import json
 import os
 

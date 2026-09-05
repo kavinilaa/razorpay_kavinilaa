@@ -1,7 +1,3 @@
-"""Builds notebooks/02_feature_engineering.ipynb, embedding real outputs
-captured from the actual pipeline run (scripts/phase2_validate.py,
-scripts/phase2_figures.py) rather than re-executing the full 6.36M-row
-pipeline inside the notebook."""
 import base64
 import json
 import os

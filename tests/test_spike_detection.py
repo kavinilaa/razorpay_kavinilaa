@@ -1,10 +1,3 @@
-"""
-Unit tests for the pure, testable functions in src/models/spike_detection.py
-(method_statistical, method_isolation_forest, evaluate_spike_method,
-root_cause_analysis) using a small synthetic per-step table - NOT the full
-743-step / 6.36M-row pipeline (that requires the raw PaySim CSV and is
-exercised by running the script directly, per reports/provenance.md).
-"""
 import numpy as np
 import pandas as pd
 import pytest

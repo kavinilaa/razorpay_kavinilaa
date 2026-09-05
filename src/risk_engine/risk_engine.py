@@ -1,22 +1,3 @@
-"""
-Phase 4 - Production-style transaction risk engine.
-AI Fraud-Spike & Risk Detection System (Razorpay Buildathon, Track 02)
-
-Combines:
-  A. the Phase 3 transaction-level XGBoost risk model
-  B. the Phase 3 spike-detection layer (read-only lookup of a step's spike
-     status, produced offline by src/models/spike_detection.py - this module
-     does not retrain or re-run spike detection)
-  C. explainability (src/risk_engine/explanations.py, real SHAP values)
-  D. the Phase 3 operating thresholds (src/risk_engine/thresholds.py)
-
-Public entry point: `predict_transaction_risk(transaction, mode="BALANCED")`.
-
-Failure handling: every external dependency (model file, feature-reference
-artifact, spike-detection artifact) is loaded defensively. No failure mode
-described in reports/phase4_failure_recovery.md is allowed to silently
-produce a fabricated score - see `_degraded_response()`.
-"""
 import json
 import logging
 import os

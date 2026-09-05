@@ -1,4 +1,3 @@
-"""Unit tests for src/risk_engine/schemas.py - input validation."""
 import math
 
 import pytest
